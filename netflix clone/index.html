@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix clone by Ashraf Ali</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap");
+        @import url("https://fonts.googleapis.com/css?family=Martel+Sans&display=swap");
+        @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+
+        body {
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            display: flex;
+            font-family: "Roboto", sans-serif;
+            background-color: rgba(8, 8, 8, 0.89);
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            align-items: center;
+            width: 100%;
+            height: 50px;
+            min-height: 100px;
+            align-items: center;
+            background-color: transparent;
+            align-self: center;
+        }
+
+        .navbar li {
+            margin: 0 150px;
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .logo img {
+            width: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+        }
+
+        .main {
+            width: 100%;
+            margin-top: -100px;
+            background-size: cover;
+            align-items: center;
+            overflow-x: hidden;
+            justify-content: center;
+            display: flex;
+            background-position: center;
+            min-height: 710px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                url(https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/f9368347-e982-4856-a5a4-396796381f28/RS-en-20191230-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+            background-attachment: fixed;
+        }
+
+        .area {
+            color: white;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 70px;
+            background-attachment: fixed;
+        }
+
+        .area h1 {
+            /* font-size: 60px; */
+            word-spacing: 10px;
+            /* line-height: 75px; */
+        }
+
+        .area h3 {
+            margin-top: -30px;
+            font-size: 27px;
+            font-weight: normal;
+        }
+
+        .box1 {
+            color: white;
+            /* border: 1px solid white; */
+            margin-left: 40rem;
+            background-attachment: fixed;
+        }
+
+        .box2 {
+            background: red;
+            color: white;
+            height: 2rem;
+            font-weight: bold;
+            width: 4rem;
+            display: flex;
+            margin-left: 3rem;
+            justify-content: center;
+            align-items: center;
+            background-attachment: fixed;
+        }
+
+        .box1 select {
+            background-color: #000;
+            color: white;
+            padding: 5px;
+
+        }
+
+        .searchbox {
+            display: flex;
+            flex-direction: row;
+            margin-top: 288px;
+            margin-left: -450px;
+            align-items: center;
+        }
+
+        .searchbox input {
+            background: #000;
+            border: 1px solid white;
+            color: white;
+            font-weight: bold;
+            padding-left: 12px;
+            padding: 7px;
+
+        }
+
+        .searchbox .boxsearch {
+            background: red;
+            padding: 7px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .children {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            font-size: 21px;
+            /* line-height: 2rem; */
+            background: #000;
+            background-attachment: fixed;
+        }
+
+        .children .childimg img {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .children .chidcontent {
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* line-height: 2rem; */
+            /* padding-top: 7rem; */
+            text-align: center;
+        }
+
+        .question-section {
+            background: #000;
+            display: flex;
+            width: 100%;
+            margin-top: 12px;
+            padding-top: 22px;
+            flex-direction: column;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-attachment: fixed;
+        }
+
+        .question {
+            border: 1px solid gray;
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .question p {
+            text-align: center;
+            padding: 22px;
+        }
+
+        .question .icon {
+            text-align: center;
+            padding: 22px;
+        }
+
+        .question:hover {
+            background: rgb(41, 39, 39);
+        }
+
+        .footer-up {
+            background: #000;
+            color: white;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+        }
+
+        .searchboxofooter {
+            display: flex;
+            flex-direction: row;
+            margin-top: 8px;
+            margin-left: 50px;
+            align-items: center;
+            color: white;
+        }
+
+        .searchboxofooter input {
+            background: #000;
+            border: 1px solid white;
+            color: white;
+            font-weight: bold;
+            padding-left: 12px;
+            padding: 7px;
+
+        }
+
+        .searchboxofooter .boxsearchoffooter {
+            background: red;
+            padding: 7px;
+            color: white;
+            font-weight: bold;
+        }
+
+        footer {
+            width: 100%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+
+        .footer-section {
+            width: 100%;
+            background: #000;
+            color: white;
+            display: flex;
+            flex-direction: row;
+            margin: auto;
+        }
+
+        .col1 {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+        }
+.col1 p:hover{
+    color: gray;
+}
+        @media only screen and (max-width: 768px) {
+            body{
+                background: #000;
+            }
+            nav {
+                width: 300%;
+                background: #000;
+            }
+.logo{
+    background: #0c0a0a;
+}
+            nav img {
+                margin-left: -30px;
+                width: 100%;
+                background: black;
+            }
+            .box1 {
+            margin-left: 12px;
+            width: 100%;
+            background: #000;
+        }
+        .box2{
+            margin: 30px;
+            width: 100%;
+            padding: 5px;
+        }
+        .main{
+           
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+    justify-content: center;
+            width: 300%;
+            flex-direction: column;
+            height: auto;
+            padding-left: 350px;
+            text-align: center;
+            padding-right: 400px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                url(https://assets.nflxext.com/ffe/siteui/vlv3/a1dc92ca-091d-4ca9-a05b-8cd44bbfce6a/f9368347-e982-4856-a5a4-396796381f28/RS-en-20191230-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+        
+        }
+        .main h1,h3,h4{
+            text-align: center;
+            width: 300%;
+            display: flex;
+            align-items: center;
+    justify-content: center;
+    flex-direction: row;
+        }
+        .main .searchbox{
+            display: flex;
+            flex-direction: row;
+            margin-top: 28px; 
+            margin-left: 25px;
+            align-items: center;
+        }
+        .main .searchbox .boxsearch{
+            margin-left: 12px;
+            width: 120px;
+            text-align: center;
+            height: auto;
+            padding: 5px;
+
+        }
+        /* main section tak khatam */
+        .children{
+            width: 600%;
+        }
+        .children .childimg img{
+            margin-left: -120px;
+        }
+        .children .childimg .chidcontent{
+            
+            padding-left: -150px;
+            padding-right: 39px;
+            line-height: normal;
+        }
+        .children .childimg .chidcontent h1,p{
+            text-align: center;
+            width: 200%;
+            display: flex;
+            align-items: center;
+    justify-content: center;
+    flex-direction: row;
+        }
+        /* yhe b ek section khatam */
+        .question-section{
+            width: 500%;
+                    display: flex;
+            align-items: center;
+    justify-content: center;
+            flex-direction: column;
+            height: auto;
+            text-align: center;
+        }
+        .question-section .question{
+            width: 300%;
+        }
+        .footer-up{
+            width: 300%;
+            display: flex;
+            align-items: center;
+    justify-content: center;
+            flex-direction: column;
+        }
+.footer-up h4{
+display: flex;
+width: 200%;
+height: auto;
+margin: auto;
+text-align: center;
+justify-content: center;
+align-items: center;
+flex-direction:column;
+}
+.footer-up .searchboxofooter{
+    display: flex;
+width: 200%;
+height: auto;
+margin: auto;
+margin-top: -123px;
+justify-content: center;
+align-items: center;
+flex-direction:row;
+}
+.footer-up .searchboxofooter .boxsearchoffooter{
+    margin-left: 13px;
+}
+.footer-section{
+    /* margin-top: 20px; */
+            display: flex;
+            align-items: center;
+    justify-content: center;
+            width: 300%;
+            flex-direction:column;
+            height: auto;
+}
+    }
+       </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <li class="logo"><img src="logo.webp"></li>
+            <div class="box1">
+                <select name="" id="selectcont">
+                    <option>
+                        <p>English</p>
+                    </option>
+                    <option>
+                        <p>Hindi</p>
+                    </option>
+                </select>
+            </div>
+            <div class="box2">
+                Signin
+            </div>
+        </div>
+    </nav><br>
+    <div class="main">
+        <div class="area">
+            <h1>Unlimited movies, TV shows, and more.</h1><br>
+            <h3>Watch anywhere. Cancel anytime.
+            </h3>
+            <h4>Ready to watch?Enter your email to create or resatart your membership</h4>
+        </div>
+        <div class="searchbox">
+            <input type="email" name="" id="" placeholder="Email Address">
+            <div class="boxsearch">Get Started &nbsp; > </div>
+        </div>
+    </div>
+    <hr>
+    <section class="children">
+        <div class="childimg"><img src="section2image.jpg" alt=""></div>
+        <div class="chidcontent">
+            <h1>Download your <br>shows to watch <br>offline</h1><br>
+            <p>Save your favourite easily and always have <br> something to watch.</p>
+        </div>
+    </section><br>
+    <hr>
+    <section class="children">
+        <div class="childimg"><img src="section3image.png" alt=""></div>
+        <div class="chidcontent">
+            <h1>Create profile for <br> kids</h1><br>
+            <p>Send children on adventure with their favourite characters in a space made just for <br> them free
+                with your membership.</p>
+        </div>
+    </section><br>
+    <hr>
+    <div class="question-section">
+        <div class="question">
+            <p>What is Netflix</p>
+            <div class="icon">+</div>
+        </div><br>
+        <div class="question">
+            <p>How much does netflix cost</p>
+            <div class="icon">+</div>
+        </div><br>
+        <div class="question">
+            <p>where can i watch </p>
+            <div class="icon">+</div>
+        </div><br>
+        <div class="question">
+            <p>how do i cancel</p>
+            <div class="icon">+</div>
+        </div><br>
+        <div class="question">
+            <p>whta can i watch on netflix</p>
+            <div class="icon">+</div>
+        </div><br>
+
+    </div><br>
+    <div class="footer-up">
+        <h4>Ready to watch?Enter your email to create or resatart your membership</h4>
+        <div class="searchboxofooter">
+            <input type="email" name="" id="" placeholder="Email Address">
+            <div class="boxsearchoffooter">Get Started &nbsp; > </div>
+        </div>
+    </div><br>
+    <br>
+    <footer>
+        <!-- <u>Questions? Call 000-800-919-1694</u> -->
+        <div class="footer-section">
+            <div class="col1">
+                <p>FAQ</p>
+                <p>Investor Relations</p>
+                <p>Privacy</p>
+               <p>Speed Test</p> 
+            </div>
+            <div class="col1">
+                <p>Help Center</p>
+                <p>Jobs</p>
+                <p>Cookie Preferences</p>
+                <p>Legal Notices</p>
+            </div>
+            <div class="col1">
+                <p>Account</p>
+                <p>Ways to watch</p>
+                <p>Corporate Information</p>
+                <p>Only on Netflix</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
